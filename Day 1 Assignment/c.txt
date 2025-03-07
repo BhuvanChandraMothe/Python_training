@@ -1,0 +1,154 @@
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\1.py ---
+# input_str = "Hello world and Hello Earth" 
+# print frequency of each words 
+
+input_str = "Hello world and Hello Earth"
+c = {}
+for word in input_str.split():
+    if word not in c:
+        c[word] = 1
+    else:
+        c[word] += 1
+print(c)
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\2.py ---
+# Question-2: 
+# Given:D1 = {'ok': 1, 'nok': 2}
+# D2 = {'ok': 2, 'new':3 }
+# Create below:
+# # union of keys, #value does not matter
+# D_UNION = { 'ok': 1, 'nok': 2 , 'new':3  } 
+# # intersection of keys, #value does not matter
+# D_INTERSECTION = {'ok': 1}
+# D1- D2 = {'nok': 2 }
+# #values are added for same keys
+# D_MERGE = { 'ok': 3, 'nok': 2 , 'new':3  }
+
+D1 = {'ok': 1, 'nok': 2}
+D2 = {'ok': 2, 'new':3 }
+D_UNION = D1 | D2
+print(f"{D_UNION=}")
+
+D_INTERSECTION={}
+for key in D1:
+    if key in D2:
+        D_INTERSECTION[key] = D1[key] 
+print(f"{D_INTERSECTION=}")
+
+D1D2 ={}
+for key in D1:
+    if key not in D2:
+        D1D2[key] = D1[key] 
+print(f"D1-D2={D1D2}")
+
+D_MERGE ={}
+for key in D1:
+    if key in D2:
+        D_MERGE[key] = D1[key] + D2[key]
+    else:
+        D_MERGE[key] = D1[key]
+for key in D2:
+        if key not in D_MERGE:
+             D_MERGE[key] = D2[key]
+print(F"{D_MERGE=}")
+
+
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\3.PY ---
+# Question-3:
+# Given a directory, find out the file Name 
+# having max size recursively 
+
+import os
+
+
+
+# def get_file_sizes(directory):
+#     file_sizes = {}
+#     for root,dir ,files in os.walk(directory):
+#         for file in files:
+#             file_path = os.path.join(root, file)
+#             file_name = os.path.basename(file_path)
+#             file_size = os.path.getsize(file_path)
+#             file_sizes[file_name] = file_size
+    
+#         sorted_file_size = (sorted(file_sizes.items(), reverse=True))
+#     print(sorted_file_size)
+
+def get_file_sizes(directory):
+    max_size = 0
+    largest_file = ""
+    for dirpath, dirname, files in os.walk(directory):
+        for file in files:
+            file_path = os.path.join(dirpath, file)
+            file_name = os.path.basename(file_path)
+            file_size = os.path.getsize(file_path)
+        
+            if file_size>max_size:
+                max_size = file_size
+                largest_file = file_name
+    print(f"The largest file is {largest_file} which is {max_size} bytes.")
+
+
+directory_path = 'C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment'
+file_sizes = get_file_sizes(directory_path)
+# for file_name, size in file_sizes.items():
+#     print(f"{file_name}: {size} bytes")
+
+
+
+    
+    
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\4.py ---
+# Question-4:
+# Recurively go below a dir and based on filter, dump those files in to  single file 
+# (work with only text file)
+
+
+import os
+
+def read_and_write_files(source_dir, output_file):
+    with open(output_file, "w", encoding="utf-8") as out_file:
+        for root, _, files in os.walk(source_dir):
+            for file in files:
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, "r", encoding="utf-8") as in_file:
+                        out_file.write(f"--- Content of {file_path} ---\n")
+                        out_file.writelines(in_file.readlines())
+                        out_file.write("\n\n")
+                except Exception as e:
+                    print(f"Could not read {file_path}: {e}")
+
+# Set your directory and output file path
+source_directory = "C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment"
+output_file_path = "c.txt"
+
+read_and_write_files(source_directory, output_file_path)
+print(f"All files' contents are written to {output_file_path}")
+
+
+
+    
+    
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\a.txt ---
+Hi
+kaushik
+kusuma
+ganesh
+rakesh
+satya
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\b.txt ---
+Office is good because of you guys
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Day 1 Assignment\c.txt ---
+
+
