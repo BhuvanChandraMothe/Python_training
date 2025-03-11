@@ -1,0 +1,15 @@
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Assignments/Day 4 Assignment\a.txt ---
+Hi
+kaushik
+kusuma
+ganesh
+rakesh
+satya
+
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Assignments/Day 4 Assignment\b.txt ---
+Office is good because of you guys
+
+--- Content of C:/Users/Mothe Bhuvan Chandra/Desktop/Assignments/Day 4 Assignment\c.txt ---
+
+
