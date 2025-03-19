@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Notes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <h2 class="text-center">All Notes</h2>
+
+    <div class="list-group">
+        {% for note in notes %}
+            <div class="list-group-item">
+                <h5>{{ note.title }}</h5>
+                <p>{{ note.content }}</p>
+            </div>
+        {% else %}
+            <p>No notes found.</p>
+        {% endfor %}
+    </div>
+
+    <!--<a href="/" class="btn btn-primary mt-4">Add New Note</a> -->
+</body>
+</html>
