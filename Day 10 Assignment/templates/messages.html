@@ -39,7 +39,7 @@
                         {{ message.prompt }}
                     </div>
                     <div class="message-content">
-                        {{ message.message }}
+                        <pre>{{ message.message|replace('**', '') }}</pre>
                     </div>
                     <!-- <div class="message-time">
                         <small>Received at: {{ message.timestamp }}</small>
@@ -51,8 +51,7 @@
         <p>No messages found.</p>
     {% endif %}
 
-
-    <a href="/" class="btn btn-primary mt-4">Add New Note</a>
+    <a href="/" class="btn btn-primary mt-4">Chat again !!</a>
 
 </body>
 </html>
