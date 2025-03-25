@@ -1,0 +1,54 @@
+import { Component } from "react";
+import ParentComponent from "./ParentComponent";
+import ChildComponent from "./ChildComponent";
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      count : 0,
+      msg : 'Hello Bhuvan',
+      users : [],
+      user : {},
+    }
+  }
+
+inc = () => this.setState({count : this.state.count + 1})
+changeHandler = (e) => this.setState({user : {...this.state.user, [e.target.name] : e.target.value}});
+getUsers = () => { this.setState({users : [...this.state.users, this.state.user]})};
+
+  render() {
+    const {count, msg, m,g} = this.state;
+    const {user, users} = this.state;
+    return (
+      <div>
+
+        <h1>Namaskaram mowa !</h1>
+        <p>The count : {count}</p>
+        <p></p>
+        <button onClick={this.inc}>Click me yaaa!!</button>
+
+        <input type="text" onChange={(e) => this.setState({msg : e.target.value})}/>
+
+        <p>Message : {msg}</p>
+        {/* <button onClick={() => this.setState({m : 'ah namaste, namaste' })}>Namaste cheppu bey !!</button> */}
+        <br/>
+        <input type="text" name="Username" onChange={this.changeHandler}/>
+        <input type="number" name="Userage" onChange={this.changeHandler}/>
+        <input type='date' name="UserDoB" onChange={this.changeHandler}/>
+        <button onClick={this.getUsers}>Add User</button>
+        <p>Panikimalina yedavalu : {user.length}</p>    
+
+        <ul>
+          {users.map((user, index) => (
+            <li key={index}>{user.Username} - {user.Userage} - {user.UserDoB}</li>
+          ))}
+        </ul>
+
+
+      </div>
+      
+    );
+  }
+}
+export default App;
